@@ -9,7 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <AppSidebar />
             <SidebarInset>
                 <Navbar />
-                <main className='py-5'>{children}</main>
+                <main className='p-5'>{children}</main>
             </SidebarInset>
         </SidebarProvider>
     )
