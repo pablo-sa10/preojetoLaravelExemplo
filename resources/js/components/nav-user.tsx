@@ -29,16 +29,17 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { User } from "@/types"
+import { cn } from "@/lib/utils"
+import { ModeToggle } from "./mode-toggle"
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string
-    email: string
-    avatar: string
-  }
-}) {
+type Props = {
+  user: User;
+  btnClassName?: string;
+  isNavbar?: boolean;
+}
+
+export function NavUser({user, isNavbar, btnClassName}: Props) {
   const { isMobile } = useSidebar()
 
   return (
@@ -48,7 +49,7 @@ export function NavUser({
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              className={cn("data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground", btnClassName)}
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
@@ -63,7 +64,7 @@ export function NavUser({
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile || isNavbar ? "bottom" : "right"}
             align="end"
             sideOffset={4}
           >
@@ -100,6 +101,7 @@ export function NavUser({
                 <Bell />
                 Notifications
               </DropdownMenuItem>
+              
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
