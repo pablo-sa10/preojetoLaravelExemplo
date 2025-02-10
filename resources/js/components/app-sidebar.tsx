@@ -23,6 +23,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
+import { ScrollArea } from "@radix-ui/react-scroll-area"
 
 // This is sample data.
 const data = {
@@ -30,7 +31,7 @@ const data = {
     id: 1,
     name: "Pablo",
     email: "pablomoura2016@gmail.com",
-    avatar: "https://pablo-sa10.github.png/",
+    avatar: "https://github.com/pablo-sa10.png",
   },
   teams: [
     {
@@ -162,8 +163,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <ScrollArea>
+          <NavMain items={data.navMain} />
+          <NavProjects projects={data.projects} />
+        </ScrollArea>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
