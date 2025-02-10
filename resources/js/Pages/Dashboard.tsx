@@ -4,6 +4,7 @@ import { Activity, CreditCard, DollarSign, Filter, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import SummaryCard from '@/components/summary-card';
 import Chart from '@/components/chart';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const summaryData = [
     { title: "Total Revenue", icon: DollarSign, value: "R$45.231,89" },
@@ -38,6 +39,16 @@ const Dashboard = () => {
 
         <div className='mt-5 grid grid-cols-1 lg:grid-cols-2 gap-4'>
             <Chart />
+
+            <Card>
+                <CardHeader>
+                    <CardTitle>Vendas Recentes</CardTitle>
+                    <CardDescription>Você fez 256 vendas</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    
+                </CardContent>
+            </Card>
         </div>
 
     </Layout>
