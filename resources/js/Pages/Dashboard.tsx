@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import SummaryCard from '@/components/summary-card';
 import Chart from '@/components/chart';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import RecentSales from '@/components/recent-sale';
 
 const summaryData = [
     { title: "Total Revenue", icon: DollarSign, value: "R$45.231,89" },
@@ -46,7 +47,7 @@ const Dashboard = () => {
                     <CardDescription>Você fez 256 vendas</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    
+                    <RecentSales />
                 </CardContent>
             </Card>
         </div>
